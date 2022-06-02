@@ -60,7 +60,7 @@ export const FormBottle: React.FC< BottleProps > = (props) => {
             "liquid": ${liquid},
             "volume": ${volume},
             "model": ${model},
-            "price": ${price},            
+            "price": ${price},        
             `);
 
         ApiService
