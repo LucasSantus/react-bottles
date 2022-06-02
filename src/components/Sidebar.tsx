@@ -8,8 +8,8 @@ export default function Sidebar() {
     const [open, setOpen] = useState(true);
 
     const menu_items = [
-        { 
-            title: "Dashboard", icon: <HomeIcon /> 
+        {
+            id: 1, title: "Dashboard", icon: <HomeIcon />
         },
     ];
 
@@ -17,7 +17,7 @@ export default function Sidebar() {
         <div
             className={`${open ? "w-72" : "w-20"} bg-slate-900 h-screen p-5 pt-8 relative duration-300`}
         >
-            <ArrowCircleLeftIcon 
+            <ArrowCircleLeftIcon
                 className={
                     `text-gray-300 absolute cursor-pointer -right-4 top-9 w-7 border-2 border-white rounded-full
                     hover:text-white
@@ -26,7 +26,8 @@ export default function Sidebar() {
                 }
                 fontSize="large"
                 onClick={() => setOpen(!open)}
-                />
+            />
+
             <div className="flex gap-x-4 items-center">
                 {/* <img
                     src="./src/assets/logo.png"
@@ -36,16 +37,14 @@ export default function Sidebar() {
                 /> */}
 
                 <h1
-                    className={`text-white font-medium text-xl ${
-                        !open && "scale-0"
-                    }`}
+                    className={`text-white font-medium text-xl ${ !open && "scale-0" }`}
                 >
                     Adega Ubuntu
                 </h1>
             </div>
             <ul className="pt-6">
-                {menu_items.map((item, index) => (
-                    <Link to="/" key={index}>
+                {menu_items.map((item) => (
+                    <Link to="/" key={ item.id }>
                         <li
                             className={`
                                 flex items-center rounded-md cursor-pointer text-lg gap-x-4 duration-200
@@ -55,9 +54,9 @@ export default function Sidebar() {
                                 active:bg-slate-600 
                                 focus:outline-none focus:ring focus:ring-white`}
                         >
-                            {item.icon}
+                            { item.icon }
                             <span className={`${!open && "hidden"} origin-left duration-200`}>
-                                {item.title}
+                                { item.title }
                             </span>
                         </li>
                     </Link>
