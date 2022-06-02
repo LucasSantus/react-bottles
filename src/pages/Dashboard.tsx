@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const headers = [
     {
@@ -18,6 +20,10 @@ const headers = [
     {
         id: 4,
         name: "Preço"
+    },
+    {
+        id: 5,
+        name: "Actions"
     }
 ]
 
@@ -48,7 +54,6 @@ const contents = [
 export default function Dashboard() {
     return (
         <div className="flex bg-slate-800 w-full h-screen">
-
             <Sidebar />
 
             <div className="h-screen flex-1 p-7">
@@ -69,7 +74,9 @@ export default function Dashboard() {
                             <tr>
                                 {headers.length > 0 ? (
                                     headers.map((item) => (
-                                        <th className="text-left p-2" key={item.id}>{item.name}</th>
+                                        <th className="
+                                            text-left p-2
+                                        " key={item.id}>{item.name}</th>
                                     ))) : (
                                         <></>
                                     )
@@ -84,6 +91,22 @@ export default function Dashboard() {
                                         <td className="p-2">{item.volume}</td>
                                         <td className="p-2">{item.model}</td>
                                         <td className="p-2">{item.price}</td>
+                                        <td className="p-2">
+                                            <Link to="/" className="
+                                                text-green-800
+                                                hover:text-green-600 
+                                                active:text-green-400"
+                                            >
+                                                <EditIcon /> 
+                                            </Link>
+                                            <Link to="/" className="
+                                                text-red-800
+                                                hover:text-red-600 
+                                                active:text-red-400
+                                            ">
+                                                <DeleteIcon />
+                                            </Link>
+                                        </td>
                                     </tr>
                                 ))) : (
                                     <></>
